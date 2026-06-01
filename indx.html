@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>원피스 MBTI 테스트 - 내 안의 해적 찾기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 배경 애니메이션 효과 -->
+    <div class="ocean-bg"></div>
+
+    <div class="container">
+        <!-- 1. 랜딩 페이지 -->
+        <section id="landing-page" class="page active">
+            <div class="wanted-poster">
+                <h1 class="main-title">WANTED</h1>
+                <p class="sub-title">내가 원피스 세계관에 들어간다면?</p>
+                <div class="character-vs-img">
+                    <span class="vs-emojis">🍖 VS 🤡</span>
+                </div>
+                <p class="intro-text">"너 내 동료가 돼라!<br>근데... 개그 캐 담당일지도?"</p>
+                <div class="btn-group">
+                    <button id="start-btn" class="btn anime-btn">새로운 모험 시작하기 ⚓</button>
+                    <button id="resume-btn" class="btn resume-btn hidden">이전 모험 이어하기 🧭</button>
+                    <button id="last-result-btn" class="btn history-btn hidden">마지막 결과 보기 📜</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 질문 페이지 -->
+        <section id="question-page" class="page">
+            <div class="wanted-poster question-box">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="question-number" id="q-number">Q. 01</div>
+                <div class="question-text" id="q-text">질문이 여기에 표시됩니다.</div>
+                <div class="answer-buttons">
+                    <button id="ans-a" class="btn ans-btn">선택지 A</button>
+                    <button id="ans-b" class="btn ans-btn">선택지 B</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 로딩 페이지 -->
+        <section id="loading-page" class="page">
+            <div class="loading-box">
+                <div class="spinner">⚓</div>
+                <p class="loading-text" id="loading-message">로그포스 맞추는 중...</p>
+            </div>
+        </section>
+
+        <!-- 4. 결과 페이지 (사진 영역 추가됨) -->
+        <section id="result-page" class="page">
+            <div class="wanted-poster result-card">
+                <div class="stamp-funny">개그캐 확정</div>
+                <h2 class="result-title">WANTED</h2>
+                
+                <!-- 캐릭터 사진 영역 -->
+                <div class="char-img-container">
+                    <img id="res-img" src="" alt="캐릭터 수배서 사진">
+                </div>
+
+                <div class="char-name" id="res-name">천냥광대 버기</div>
+                <div class="char-mbti" id="res-mbti">ENFP</div>
+                
+                <div class="result-details">
+                    <p class="char-desc" id="res-desc">성격 요약이 들어갑니다.</p>
+                    
+                    <div class="stats-box">
+                        <div class="stat-item">🍖 식탐 지수: <span id="stat-food"></span></div>
+                        <div class="stat-item">🤡 개그·허풍: <span id="stat-gag"></span></div>
+                    </div>
+
+                    <div class="ability-box">
+                        <strong>나의 능력:</strong> <span id="res-ability">동강동강 열매</span>
+                    </div>
+                    
+                    <div class="warning-box">
+                        ⚠️ <strong>주의사항:</strong> <span id="res-warning">멋있는 척 금지</span>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button id="restart-btn" class="btn anime-btn">다시 태어나기 (재테스트) 🔄</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
