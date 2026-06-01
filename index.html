@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지금시간? - 몽글몽글 연락 매칭</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- ☁️ 헤더 영역 -->
+        <header class="app-header">
+            <div class="cloud-bg">
+                <h1>☁️ 지금시간?</h1>
+                <p id="current-time-display">00:00</p>
+            </div>
+        </header>
+
+        <!-- 📱 메인 콘텐츠 영역 -->
+        <main class="app-content">
+            <!-- 1️⃣ 메인 일정표 페이지 -->
+            <section id="page-calendar" class="page active">
+                <div class="card my-status-card">
+                    <h3>내 실시간 상태</h3>
+                    <div class="status-buttons">
+                        <button class="status-btn green" onclick="setMyQuickStatus('green')">🟢 통화가능</button>
+                        <button class="status-btn yellow" onclick="setMyQuickStatus('yellow')">🟡 문자가능</button>
+                        <button class="status-btn red" onclick="setMyQuickStatus('red')">🔴 통화불가</button>
+                    </div>
+                </div>
+
+                <div class="card add-schedule-card">
+                    <h3>📝 오늘 일정 추가</h3>
+                    <form id="schedule-form">
+                        <input type="text" id="schedule-title" placeholder="어떤 일정인가요?" required>
+                        <div class="time-picker">
+                            <input type="time" id="start-time" required>
+                            <span>~</span>
+                            <input type="time" id="end-time" required>
+                        </div>
+                        <select id="schedule-status">
+                            <option value="green">🟢 통화가능</option>
+                            <option value="yellow">🟡 문자가능</option>
+                            <option value="red">🔴 통화불가</option>
+                        </select>
+                        <button type="submit" class="submit-btn">일정 등록하기</button>
+                    </form>
+                </div>
+
+                <div class="card timeline-card">
+                    <h3>📅 오늘의 내 타임라인</h3>
+                    <div id="my-timeline" class="timeline-list">
+                        <!-- JS로 일정 추가됨 -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2️⃣ 친구 목록 및 상태 페이지 -->
+            <section id="page-friends" class="page">
+                <div class="card friend-list-card">
+                    <h3>👥 친구들의 현재 상태</h3>
+                    <div id="friend-list" class="friend-list">
+                        <!-- JS로 가상 친구 데이터 로드됨 -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3️⃣ 매칭 대기방 / 알림 페이지 -->
+            <section id="page-match" class="page">
+                <div class="card match-card">
+                    <h3>✨ 골든 타임 매칭 (추천)</h3>
+                    <p class="subtitle">지금 나와 동시에 통화 가능한 친구를 찾아왔어요!</p>
+                    <div id="match-list" class="match-list">
+                        <!-- JS로 매칭 데이터 생성됨 -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 🗺️ 하단 내비게이션 바 -->
+        <nav class="app-nav">
+            <button class="nav-item active" onclick="switchPage('calendar', this)">
+                <span class="icon">📅</span>
+                <span class="text">일정표</span>
+            </button>
+            <button class="nav-item" onclick="switchPage('friends', this)">
+                <span class="icon">👥</span>
+                <span class="text">친구목록</span>
+            </button>
+            <button class="nav-item" onclick="switchPage('match', this)">
+                <span class="icon">⚡</span>
+                <span class="text">매칭방</span>
+            </button>
+        </nav>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
