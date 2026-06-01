@@ -1,0 +1,237 @@
+/* ☁️ 몽글몽글 아기자기한 테마 디자인 */
+:root {
+    --bg-sky: #e3f2fd;
+    --cloud-white: #ffffff;
+    --pastel-blue: #90caf9;
+    --pastel-yellow: #fff59d;
+    --text-main: #546e7a;
+    --status-green: #a5d6a7;
+    --status-yellow: #ffe082;
+    --status-red: #ef9a9a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 스마트 기기 레이아웃 최적화 */
+.app-container {
+    width: 100%;
+    max-width: 430px; /* 아이폰 프로맥스 기준 폭 */
+    height: 100vh;
+    max-height: 920px;
+    background-color: var(--bg-sky);
+    display: flex;
+    flex-content: space-between;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+/* 헤더 영역 */
+.app-header {
+    background: linear-gradient(to bottom, #bbdefb, var(--bg-sky));
+    padding: 24px 16px 16px 16px;
+    text-align: center;
+}
+
+.cloud-bg h1 {
+    font-size: 1.5rem;
+    color: #1e88e5;
+    margin-bottom: 4px;
+    text-shadow: 1px 1px 2px white;
+}
+
+#current-time-display {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #5c92c2;
+    background: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+/* 콘텐츠 영역 및 페이지 전환 */
+.app-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    padding-bottom: 80px; /* 하단 네비게이션 공간 */
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 아기자기한 카드 컴포넌트 */
+.card {
+    background-color: var(--cloud-white);
+    border-radius: 20px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(144, 202, 249, 0.2);
+    border: 2px solid #e1f5fe;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #1e88e5;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: #78909c;
+    margin-bottom: 12px;
+}
+
+/* 상태 변경 버튼 */
+.status-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.status-btn {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.status-btn:active { transform: scale(0.95); }
+.status-btn.green { background-color: var(--status-green); }
+.status-btn.yellow { background-color: var(--status-yellow); }
+.status-btn.red { background-color: var(--status-red); }
+
+/* 폼 디자인 */
+#schedule-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#schedule-form input, #schedule-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1.5px solid #b3e5fc;
+    border-radius: 10px;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.time-picker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.submit-btn {
+    background-color: var(--pastel-blue);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 리스트 아이템 디자인 */
+.timeline-item, .friend-item, .match-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid #f0f4f8;
+}
+
+.timeline-item:last-child, .friend-item:last-child, .match-item:last-child {
+    border-bottom: none;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: #37474f;
+    font-weight: bold;
+}
+
+.badge.green { background-color: var(--status-green); }
+.badge.yellow { background-color: var(--status-yellow); }
+.badge.red { background-color: var(--status-red); }
+
+.ping-btn {
+    background-color: #e3f2fd;
+    border: 1px solid var(--pastel-blue);
+    color: #1e88e5;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+/* 하단 내비게이션 바 */
+.app-nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 68px;
+    background-color: var(--cloud-white);
+    display: flex;
+    border-top: 2px solid #e1f5fe;
+}
+
+.nav-item {
+    flex: 1;
+    border: none;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #90a4ae;
+    cursor: pointer;
+}
+
+.nav-item.active {
+    color: #1e88e5;
+}
+
+.nav-item .icon {
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+}
+
+.nav-item .text {
+    font-size: 0.75rem;
+    font-weight: bold;
+}
